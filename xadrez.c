@@ -1,11 +1,13 @@
+// biblioteca
 #include <stdio.h>
 
 int main(){
+    // variaveis usadas
     int option;
     int num;
     char linha[50];
 
-    do {
+    do { //menu do movimento das peças
         printf("Menu do jogo de xadrez:\n");
         printf("1. bispo\n");
         printf("2. torre\n");
@@ -14,8 +16,8 @@ int main(){
         printf("escolhar uma opçao: ");
         scanf("%d", &option);
        
-        switch(option) {
-            case 1:
+        switch(option) { 
+            case 1: // movimento bispo
                 do {
                  printf("o bispo so pode se mover em 5 casas: ");
                  scanf("%d", &num);
@@ -34,7 +36,7 @@ int main(){
     printf("movimento impossivel. Saindo...\n");
    
                 break;
-            case 2:
+            case 2: // movimento torre
                 do {
                  printf("torre so pode se mover em 5 casas: ");
                  scanf("%d", &num);
@@ -52,7 +54,7 @@ int main(){
    
     printf("movimento impossivel. Saindo...\n");
                 break;
-            case 3:
+            case 3: // movimento rainha
                 do {
                  printf("rainha so pode se mover em 8 casas: ");
                  scanf("%d", &num);
@@ -70,7 +72,7 @@ int main(){
    
     printf("movimento impossivel. Saindo...\n");
                 break;
-            case 4:
+            case 4: // fechando o jogo
                 printf("Saindo...\n");
                 break;
             default:
