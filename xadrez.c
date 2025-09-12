@@ -19,58 +19,54 @@ int main(){
         switch(option) { 
             case 1: // movimento bispo
                 do {
-                 printf("o bispo so pode se mover em 5 casas: ");
+                 printf("o bispo so pode se mover em ate 5 casas: ");
                  scanf("%d", &num);
+
+                 printf("Você digitou: %d\n\n", num);
 
                  printf("escrevar uma das opçoes\n");
                  printf("diagonal ou anti-diagonal\n");
                  scanf("%s", &linha);
        
-        if (num >= 5) {
-            printf("Você digitou: %d\n", num);
-            printf("bispo: %d casas na %s\n", num, linha);
-                
-        }
-    } while (num <= 5);
+                 printf("resultado:\n\n");
+        
+    } while (num <= 4 && num >= 0);
    
-    printf("movimento impossivel. Saindo...\n");
-   
+    printf("bispo: andou %d casas na %s\n\n", num, linha);
                 break;
             case 2: // movimento torre
                 do {
                  printf("torre so pode se mover em 5 casas: ");
                  scanf("%d", &num);
 
+                 printf("Você digitou: %d\n\n", num);
+
                  printf("escrevar uma das opçoes\n");
-                 printf("direita, esquerda , cima ou baixo\n");
+                 printf("direita, esquerda , cima ou baixo\n\n");
                  scanf("%s", &linha);
-       
-        if (num >= 5) {
-            printf("Você digitou: %d\n", num);
-            printf("torre: %d casas na %s\n", num, linha);
-                
-        }
-    } while (num <= 5);
-   
-    printf("movimento impossivel. Saindo...\n");
+
+                 printf("resultado:\n\n");
+                       
+    } while (num <= 4 && num >= 0);
+    
+    printf("torre: andou %d casas na %s\n\n", num, linha);
                 break;
             case 3: // movimento rainha
                 do {
                  printf("rainha so pode se mover em 8 casas: ");
                  scanf("%d", &num);
 
+                 printf("Você digitou: %d\n\n", num);
+
                  printf("escrevar uma das opçoes\n");
-                 printf("qualquer direçao\n");
+                 printf("qualquer direçao\n\n");
                  scanf("%s", &linha);
-       
-        if (num >= 8) {
-            printf("Você digitou: %d\n", num);
-            printf("rainha: %d casas na %s\n", num, linha);
-                
-        }
-    } while (num <= 8);
+
+                 printf("resultado:\n\n");
+                       
+    } while (num <= 7 && num >= 0);
    
-    printf("movimento impossivel. Saindo...\n");
+    printf("torre: andou %d casas na %s\n\n", num, linha);
                 break;
             case 4: // fechando o jogo
                 printf("Saindo...\n");
