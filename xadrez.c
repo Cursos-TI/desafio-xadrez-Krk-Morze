@@ -80,9 +80,4 @@ int main(){
    } while (opçao != 5);
 
     return 0;
-
-
-    
-    movimentoBispo();
-    return 0;
 }
