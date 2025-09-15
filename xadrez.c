@@ -1,92 +1,88 @@
-// biblioteca
 #include <stdio.h>
 
-int main(){
-    // variaveis usadas
-    int option;
-    int num;
-    char linha[50];
-
-    do { //menu do movimento das peças
-        printf("Menu do jogo de xadrez:\n");
-        printf("1. bispo\n");
-        printf("2. torre\n");
-        printf("3. rainha\n");
-        printf("4. sair\n");
-        printf("escolhar uma opçao: ");
-        scanf("%d", &option);
-       
-        switch(option) { 
-            case 1: // movimento bispo
-                do {
-                 printf("o bispo so pode se mover em ate 5 casas: ");
-                 scanf("%d", &num);
-
-                 printf("Você digitou: %d\n\n", num);
-
-                 printf("escrevar uma das opçoes\n");
-                 printf("diagonal ou anti-diagonal\n");
-                 scanf("%s", &linha);
-       
-                 printf("resultado:\n\n");
-        
-    } while (num <= 4 && num >= 0);
-   
-    printf("bispo: andou %d casas na %s\n\n", num, linha);
-                break;
-            case 2: // movimento torre
-                do {
-                 printf("torre so pode se mover em 5 casas: ");
-                 scanf("%d", &num);
-
-                 printf("Você digitou: %d\n\n", num);
-
-                 printf("escrevar uma das opçoes\n");
-                 printf("direita, esquerda , cima ou baixo\n\n");
-                 scanf("%s", &linha);
-
-                 printf("resultado:\n\n");
-                       
-    } while (num <= 4 && num >= 0);
-    
-    printf("torre: andou %d casas na %s\n\n", num, linha);
-                break;
-            case 3: // movimento rainha
-                do {
-                 printf("rainha so pode se mover em 8 casas: ");
-                 scanf("%d", &num);
-
-                 printf("Você digitou: %d\n\n", num);
-
-                 printf("escrevar uma das opçoes\n");
-                 printf("qualquer direçao\n\n");
-                 scanf("%s", &linha);
-
-                 printf("resultado:\n\n");
-                       
-    } while (num <= 7 && num >= 0);
-   
-    printf("torre: andou %d casas na %s\n\n", num, linha);
-                break;
-            case 4: // fechando o jogo
-                printf("Saindo...\n");
-                break;
-            default:
-                printf("Opção inválida!\n");
+////////////////// 
+void movimentoBispo(){
+      for (int i = 1; i <= 5; i++) {
+        printf("e%d ", i);
+        for (int j = 1; j <= 1; j++) {
+            printf("u%d\t", i == j);
         }
-    } while (option != 4);
+        printf("\n");
+    }
+
 }
+//////////////////////////////////
+void movimentotorre(int casas){
+      if (casas > 0){
+        movimentotorre(casas - 1);
+        printf("torre andou %d casa pra direta \n", casas);
+      }
+      
+}
+//////////////////////////////////
+void movimentorainha(int casa){
+    if (casa > 0){
+        movimentorainha(casa - 1);
+        printf("rainha andou %d casa pra cima\n", casa);
+    }
+    
+}
+///////////////////////////////////
+void movimentocavalo(){
+    for (int i = 0; i < 10; i++) {
+        if (i == 0) continue; // Pula a iteração quando i é 5
+        if (i == 3) break;    // Sai do loop quando i é 8
+        printf("cavalo andou %d casas pra cima\n", i);
+    }
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+    for (int i = 0; i < 10; i++) {
+        if (i == 0) continue; // Pula a iteração quando i é 5
+        if (i == 2) break;    // Sai do loop quando i é 8
+        printf("cavalo andou %d casa pra direita\n", i);
+    }
+}
+///////////////////////////////////
+int main(){
+     // variaveis do menu
+    int opçao;
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+   do { // escolhas do jogado e abertudo do menu
+    printf("### Menu Principal ###\n");
+    printf("1. bispo\n");
+    printf("2. torre\n");
+    printf("3. rainha\n");
+    printf("4. cavalo\n");
+    printf("5. sair\n");
+    printf("Escolha uma opção: ");
+    scanf("%d", &opçao);
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+    // menu do jogo
+    switch (opçao){
+    case 1:
+    movimentoBispo();
+      break;
+    case 2:
+    movimentotorre(5);
+      break;
+    case 3:
+    movimentorainha(8);
+      break; 
+    case 4:
+    movimentocavalo();
+      break;
+    case 5:
+    printf("saindo....\n");
+      break;   
+      default:
+      
+      break;  
+    }
+   } while (opçao != 5);
 
+    return 0;
+
+
+    
+    movimentoBispo();
     return 0;
 }
